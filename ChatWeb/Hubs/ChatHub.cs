@@ -8,9 +8,9 @@ namespace ChatWeb.Hubs
 {
     public class ChatHub : Hub
     {
-        public void Hello()
+        public void ClientToServer(string user, string message)
         {
-            Clients.All.hello();
+            Clients.All.ServerToClient(user,message);
         }
     }
 }
