@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ChatMobile"
+             x:Class="ChatMobile.MainPage">
+
+    <StackLayout HorizontalOptions="FillAndExpand" Padding="4">
+        <Label Text="{Binding ConnectionState}" FontAttributes="Bold" />
+        <Entry HorizontalOptions="FillAndExpand" Placeholder="Seu nome" Text="{Binding Name}"></Entry>
+        
+        <ListView ItemsSource="{Binding Messages}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <ListView.ItemTemplate >
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Beige">
+                            <Label FontAttributes="Bold" Text="{Binding Name}" />
+                            <Label Text="{Binding Content}" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackLayout  Orientation="Horizontal" HorizontalOptions="Fill">
+            <Entry HorizontalOptions="FillAndExpand" Placeholder="Digite sua mensagem" Text="{Binding Message}"></Entry>
+            <Button Text="Enviar" Command="{Binding SendCmd}"></Button>
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>
